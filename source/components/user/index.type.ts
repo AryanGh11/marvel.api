@@ -2,6 +2,7 @@ export type UserType = {
   body: {
     name?: string;
     username?: string;
+    image?: string;
     email?: string;
     password?: string;
   };

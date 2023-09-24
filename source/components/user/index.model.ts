@@ -41,6 +41,7 @@ export default async function UserModel() {
           new mongoose.Schema({
             name: { type: String, default: "User" },
             username: { type: String, unique: true },
+            image: { type: String },
             email: { type: String, unique: true, require: true },
             password: { type: String },
           })
@@ -48,6 +49,6 @@ export default async function UserModel() {
     return UserModel;
   } catch (err: any) {
     const error = UserErrors(err);
-    console.log(error);
+    throw error;
   }
 }
