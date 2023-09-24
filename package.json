@@ -8,6 +8,6 @@
   "scripts": {
     "start": "npx ts-node server.ts",
     "tsc": "tsc",
-    "build": "npx prisma generate && tsc"
+    "build": "tsc"
   }
 }
