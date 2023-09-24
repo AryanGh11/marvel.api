@@ -1,4 +1,4 @@
-import UserErrors from "./index.errors";
+import BackgroundErrors from "./index.errors";
 
 const mongoose = require("mongoose");
 
@@ -8,10 +8,8 @@ const mongoose = require("mongoose");
  * const UserModelInstance = await UserModel();
   try {
     const newUser = new UserModelInstance({
-      name: name,
-      username: username,
-      email: email,
-      password: password,
+      title: title,
+      url: url,
     });
 
     await newUser.save();
@@ -24,30 +22,28 @@ const mongoose = require("mongoose");
   }
  * @returns Create and save new document in User model or catch the error
  */
-export default async function UserModel() {
+export default async function BackgroundModel() {
   mongoose.connect(
     "mongodb+srv://AryanGh:%40AryanGholami11@shop.xjy2rsu.mongodb.net/",
     { useNewUrlParser: true, useUnifiedTopology: true }
   );
-  const modelName = "user";
+  const modelName = "background";
 
   try {
     const existingModel = mongoose.modelNames().includes(modelName);
-    const UserModel = existingModel
+    const BackgroundModel = existingModel
       ? mongoose.model(modelName)
       : mongoose.model(
           modelName,
           new mongoose.Schema({
-            name: { type: String, default: "User" },
-            username: { type: String, unique: true },
-            image: { type: String },
-            email: { type: String, unique: true, require: true },
-            password: { type: String },
+            title: { type: String, default: "background" },
+            url: { type: String, unique: true, require: true },
           })
         );
-    return UserModel;
+    return BackgroundModel;
   } catch (err: any) {
-    const error = UserErrors(err);
+    console.log(err);
+    const error = BackgroundErrors(err);
     throw error;
   }
 }
