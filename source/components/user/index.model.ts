@@ -1,3 +1,4 @@
+import randomNumber from "../../utils/randomNumber";
 import UserErrors from "./index.errors";
 
 const mongoose = require("mongoose");
@@ -5,8 +6,8 @@ const mongoose = require("mongoose");
 /**
  * @description This function will create a new document in User model
  * @example 
- * const UserModelInstance = await UserModel();
   try {
+    const UserModelInstance = await UserModel();
     const newUser = new UserModelInstance({
       name: name,
       username: username,
@@ -39,10 +40,17 @@ export default async function UserModel() {
           modelName,
           new mongoose.Schema({
             name: { type: String, default: "User" },
-            username: { type: String, unique: true },
-            image: { type: String },
+            username: {
+              type: String,
+              unique: true,
+              default: "`user${randomNumber(1000, 9999)}`",
+            },
+            avatar: { type: String, default: "" },
             email: { type: String, unique: true, require: true },
-            password: { type: String },
+            password: {
+              type: String,
+              default: randomNumber(100000, 999999),
+            },
           })
         );
     return UserModel;

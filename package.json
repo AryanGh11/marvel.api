@@ -10,5 +10,8 @@
     "start": "npx ts-node source/server.ts",
     "tsc": "tsc",
     "build": "npx prisma generate && tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
   }
 }

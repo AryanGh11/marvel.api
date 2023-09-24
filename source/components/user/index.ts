@@ -29,6 +29,6 @@ export default async function Users(req: UserType, res: any) {
     res.send("User created successfully");
   } catch (err: any) {
     const error = UserErrors(err);
-    res.send(error);
+    res.send(err);
   }
 }
