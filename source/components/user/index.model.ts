@@ -1,3 +1,4 @@
+import GetRandomAvatar from "../../utils/randomAvatar";
 import randomNumber from "../../utils/randomNumber";
 import UserErrors from "./index.errors";
 
@@ -45,12 +46,18 @@ export default async function UserModel() {
               unique: true,
               default: "`user${randomNumber(1000, 9999)}`",
             },
-            avatar: { type: String, default: "" },
+            bio: {
+              type: String,
+              default: "Hi there, I'm using the Marvel app!",
+            },
+            avatar: { type: String, default: GetRandomAvatar() },
             email: { type: String, unique: true, require: true },
             password: {
               type: String,
               default: randomNumber(100000, 999999),
             },
+            phone_number: { type: String, default: "" },
+            createdAt: { type: Date, require: true, default: Date.now() },
           })
         );
     return UserModel;

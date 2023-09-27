@@ -4,8 +4,8 @@ export default async function GetBackground(req: any, res: any) {
   const user = await BackgroundModel();
   user
     .find({})
-    .then((users: any) => {
-      res.send(users);
+    .then((backgrounds: any) => {
+      res.send(backgrounds);
     })
     .catch((err: any) => {
       console.error(err);
