@@ -2,9 +2,11 @@ export type UserType = {
   body: {
     name?: string;
     username?: string;
-    image?: string;
+    bio?: string;
+    phone_number?: string;
     email?: string;
     password?: string;
+    avatar?: string;
   };
 };
 export type UserErrorType =

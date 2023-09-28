@@ -12,18 +12,22 @@ mongoose.connect(
 export default async function Users(req: UserType, res: any) {
   const name = req.body.name;
   const username = req.body.username;
-  const image = req.body.image;
+  const bio = req.body.bio;
+  const avatar = req.body.avatar;
   const email = req.body.email;
   const password = req.body.password;
+  const phone_number = req.body.phone_number;
 
   try {
     const UserModelInstance = await UserModel();
     const newUser = new UserModelInstance({
       name: name,
       username: username,
-      image: image,
+      bio: bio,
+      avatar: avatar,
       email: email,
       password: password,
+      phone_number: phone_number,
     });
     await newUser.save();
     res.send("User created successfully");

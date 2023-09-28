@@ -15,11 +15,11 @@ export default async function Backgrounds(req: BackgroundType, res: any) {
 
   try {
     const BackgroundModelInstance = await BackgroundModel();
-    const newUser = new BackgroundModelInstance({
+    const newBackground = new BackgroundModelInstance({
       title: title,
       url: url,
     });
-    await newUser.save();
+    await newBackground.save();
     res.send("Background added successfully");
   } catch (err: any) {
     const error = BackgroundErrors(err);

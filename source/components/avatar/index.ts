@@ -15,11 +15,11 @@ export default async function Avatars(req: AvatarType, res: any) {
 
   try {
     const AvatarModelInstance = await AvatarModel();
-    const newUser = new AvatarModelInstance({
+    const newAvatar = new AvatarModelInstance({
       title: title,
       url: url,
     });
-    await newUser.save();
+    await newAvatar.save();
     res.send("Avatar added successfully");
   } catch (err: any) {
     const error = AvatarErrors(err);
