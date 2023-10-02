@@ -5,6 +5,7 @@ import GetBackground from "./components/background/index.get";
 import Banners from "./components/banners";
 import GetBanner from "./components/banners/index.get";
 import SendEmail from "./components/email";
+import Movie from "./components/movie";
 import Users from "./components/user/index";
 import GetUser from "./components/user/index.get";
 import UpdateUser from "./updates/user";
@@ -27,3 +28,5 @@ routes.post("/user", Users);
 routes.get("/user", GetUser);
 
 routes.post("/update-user", UpdateUser);
+
+routes.get("/movie", Movie);
