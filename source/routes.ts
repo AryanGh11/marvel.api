@@ -5,7 +5,8 @@ import GetBackground from "./components/background/index.get";
 import Banners from "./components/banners";
 import GetBanner from "./components/banners/index.get";
 import SendEmail from "./components/email";
-import Movie from "./components/movie";
+import Movies from "./components/movie";
+import GetMovie from "./components/movie/index.get";
 import Users from "./components/user/index";
 import GetUser from "./components/user/index.get";
 import UpdateUser from "./updates/user";
@@ -27,6 +28,7 @@ routes.post("/email", SendEmail);
 routes.post("/user", Users);
 routes.get("/user", GetUser);
 
-routes.post("/update-user", UpdateUser);
+routes.post("/movie", Movies);
+routes.get("/movie", GetMovie);
 
-routes.get("/movie", Movie);
+routes.post("/update-user", UpdateUser);
