@@ -13,6 +13,7 @@ export type MovieType = {
     imdbRating: string;
     imdbVotes: string;
     imdbID: string;
+    Trailer?: string;
   };
 };
 export type MovieErrorType =

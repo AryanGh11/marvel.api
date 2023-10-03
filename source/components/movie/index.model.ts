@@ -49,6 +49,7 @@ export default async function MovieModel() {
             imdb_rating: { type: String },
             imdb_votes: { type: String },
             imdb_id: { type: String, unique: true },
+            trailer: { type: String },
           })
         );
     return MovieModel;

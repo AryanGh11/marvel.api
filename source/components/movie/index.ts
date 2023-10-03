@@ -12,6 +12,7 @@ mongoose.connect(
 
 export default async function Movies(req: MovieType, res: any) {
   const name = req.body.Title;
+  const trailer = req.body.Trailer;
 
   const apiUrl = `http://www.omdbapi.com/?apikey=7524a60b&t=${name}`;
   try {
@@ -38,6 +39,7 @@ export default async function Movies(req: MovieType, res: any) {
           imdb_rating: data.imdbRating,
           imdb_votes: data.imdbVotes,
           imdb_id: data.imdbID,
+          trailer: trailer,
         });
         await newMovie.save();
         res.send("Movie added successfully");
